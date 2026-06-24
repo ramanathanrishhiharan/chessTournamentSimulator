@@ -8,19 +8,19 @@ public class RoundEngine {
 
     public List<Match> executeRound(List<Player> players, int roundNumber) {
 
-        // 1. SORT players based on latest state
+
         List<Player> sortedPlayers = sortPlayers(players);
 
-        // 2. PAIR players from sorted list
+
         List<Match> matches = pairPlayers(sortedPlayers, roundNumber);
 
-        // 3. SIMULATE matches + update ELO
+
         simulateMatches(matches);
 
         return matches;
     }
 
-    // ---------------- SORT ----------------
+
     private List<Player> sortPlayers(List<Player> players) {
 
         return players.stream()
@@ -35,14 +35,14 @@ public class RoundEngine {
                 .toList();
     }
 
-    // ---------------- PAIRING ----------------
+
     private List<Match> pairPlayers(List<Player> players, int roundNumber) {
 
         List<Match> matches = new ArrayList<>();
 
         List<Player> tempPlayers = new ArrayList<>(players);
 
-        // Handle odd player (BYE)
+
         if (tempPlayers.size() % 2 == 1) {
             Player bye = tempPlayers.remove(tempPlayers.size() - 1);
 
@@ -66,7 +66,7 @@ public class RoundEngine {
         return matches;
     }
 
-    // ---------------- SIMULATION ----------------
+
     private void simulateMatches(List<Match> matches) {
 
         Random random = new Random();
@@ -101,7 +101,7 @@ public class RoundEngine {
         }
     }
 
-    // ---------------- ELO UPDATE ----------------
+
     private void updateElo(Player A, Player B, String result) {
 
         int K = 32;
