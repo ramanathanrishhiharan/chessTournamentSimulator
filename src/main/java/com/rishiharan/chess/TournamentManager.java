@@ -38,7 +38,7 @@ public class TournamentManager {
         printWinner();
     }
 
-    // ---------------- ROUND RESULTS ----------------
+
     private void printRoundResults(List<Match> matches) {
 
         for (Match m : matches) {
@@ -55,7 +55,7 @@ public class TournamentManager {
         }
     }
 
-    // ---------------- STANDINGS ----------------
+
     private void printStandings() {
 
         System.out.println("\n--- STANDINGS ---");
@@ -74,7 +74,7 @@ public class TournamentManager {
                 );
     }
 
-    // ---------------- WINNER ----------------
+
     private void printWinner() {
 
         Player winner = players.stream()
